@@ -50,7 +50,7 @@ public class QuestionAdapter extends BaseAdapter {
 
         if (questionTextView != null) {
             // Display the question number by adding 1 to the zero-based position
-            questionTextView.setText((position + 1) + ". " + currentQuestion.getQuestion());
+            questionTextView.setText((position + 1) + ". " + currentQuestion.getQuestionText());
         } else {
             // Log an error if the TextView is null
             Log.e("QuestionAdapter", "TextView is null");

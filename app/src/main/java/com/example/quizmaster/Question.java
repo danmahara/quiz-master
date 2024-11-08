@@ -15,7 +15,7 @@ public class Question implements Serializable {
     }
 
     // Getters
-    public String getQuestion() {
+    public String getQuestionText() {
 
         return questionText;
     }
