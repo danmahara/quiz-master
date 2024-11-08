@@ -6,29 +6,27 @@ import java.util.ArrayList;
 
 
 public class Category implements Serializable {
-    private String categoryName;
-    private List<Question> questions;
 
-    // Constructor
-    public Category(String categoryName) {
-        this.categoryName = categoryName;
-        this.questions = new ArrayList<>();
+    private String name;
+    private List<SubCategory> subcategories;
+
+    public Category(String name) {
+        this.name = name;
+        this.subcategories = new ArrayList<>();
     }
 
-    // Getter for category name
     public String getCategoryName() {
-
-        return categoryName;
+        return name;
     }
 
-    // Getter for questions
-    public List<Question> getQuestions() {
 
-        return questions;
+    public List<SubCategory> getSubcategories() {
+        return subcategories;
     }
 
-    // Method to add a question to the category
-    public void addQuestion(Question question) {
-        questions.add(question);
+    public void addSubcategory(SubCategory subcategory) {
+        subcategories.add(subcategory);
     }
+
+
 }

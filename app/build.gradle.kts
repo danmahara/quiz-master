@@ -7,11 +7,11 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.quizmaster"
+        applicationId = "com.danmahara.quizmaster"
         minSdk = 24
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2          // Incremented versionCode for the new release
+        versionName = "1.2.0"    // New versionName for the release
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
