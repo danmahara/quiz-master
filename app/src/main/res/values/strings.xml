@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Quiz Master</string>
     <string name="title">Welcome to Quiz Master</string>
+    <string name="score">Score</string>
+    <string name="scoreCount">0</string>
+    <string name="resetButton">Reset Button</string>
 
 
 </resources>
