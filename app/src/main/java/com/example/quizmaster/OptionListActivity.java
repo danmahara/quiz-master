@@ -1,6 +1,7 @@
 package com.example.quizmaster;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MenuItem;
@@ -13,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.NavUtils;
 
+import com.google.android.material.color.utilities.Score;
 import com.google.android.material.snackbar.Snackbar;
 
 public class OptionListActivity extends AppCompatActivity {
@@ -33,6 +35,7 @@ public class OptionListActivity extends AppCompatActivity {
 
         // Set the question text
         TextView questionTextView = findViewById(R.id.questionTextView);
+
 
         // Retrieve the question text, options, and correct answer from the Intent
         String questionText = getIntent().getStringExtra("QUESTION_TEXT");
@@ -62,14 +65,18 @@ public class OptionListActivity extends AppCompatActivity {
 
             // Check if the selected option matches the correct answer
             if (selectedOption.equals(correctAnswer)) {
+                ScoreManager scoreManager = new ScoreManager(getApplicationContext()); // Pass context here
+                scoreManager.addScore(1); // Increase score by 1
+
                 // Change the background color of the selected option to green
-                snackbar = Snackbar.make(view, "Correct!", Snackbar.LENGTH_INDEFINITE)
-                        .setAction("Dismiss", v -> {
-                        }) // Adds a dismiss action
+                 snackbar = Snackbar.make(view, "Correct! Your score is: " + scoreManager.getScore(), Snackbar.LENGTH_INDEFINITE)
+                        .setAction("Dismiss", v -> { })
                         .setActionTextColor(getResources().getColor(android.R.color.white));
 
                 view.setBackgroundColor(getResources().getColor(android.R.color.holo_green_light));
-            } else {
+            }
+
+            else {
                 // Change the background color of the selected option to red
                 snackbar = Snackbar.make(view, "Incorrect! Try again.", Snackbar.LENGTH_INDEFINITE)
                         .setAction("Dismiss", v -> {
@@ -101,6 +108,7 @@ public class OptionListActivity extends AppCompatActivity {
 
         super.onBackPressed();
     }
+
     @Override
     public boolean onSupportNavigateUp() {
         finish(); // Close the current activity and go back to the previous one
